@@ -1,0 +1,9 @@
+.idea/
+.DS_Store
+!**/src/**/build
+!**/test/**/build
+*.iml
+.gradle/
+build/
+out/
+/tmp
