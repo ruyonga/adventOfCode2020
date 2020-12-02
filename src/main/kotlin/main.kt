@@ -21,7 +21,6 @@ fun twoNumbersEqual2020(list: List<String>) {
             val is2020 = expenseReport.sum(base, parseInt(item))
             if (is2020 == 2020) {
                 println("index $index base $base + current item $item = $is2020")
-                println("base * parseInt(item)--------------------------------------------------------------------------")
                 println(base * parseInt(item))
             }
         }
