@@ -1,5 +1,6 @@
 package ru.adventOfCode
 
+import ru.adventOfCode.dayTwo.PasswordPolicy
 import java.io.File
 import java.lang.Integer.parseInt
 
@@ -7,8 +8,12 @@ fun main() {
     val content = File("./src/main/kotlin/register.txt").readText()
     val list = content.split("\n").map { it.trim() }
 
-    twoNumbersEqual2020(list)
-    threeNumbersEqual2020(list)
+    //twoNumbersEqual2020(list)
+    //threeNumbersEqual2020(list)
+    val passwordPolicy = PasswordPolicy()
+    val validPasswordSize = passwordPolicy.checkForValidPasswords("./src/main/kotlin/daytwo.txt")
+    println(validPasswordSize)
+
 }
 
 fun twoNumbersEqual2020(list: List<String>) {
@@ -30,7 +35,7 @@ fun twoNumbersEqual2020(list: List<String>) {
     }
 }
 
-fun threeNumbersEqual2020(list: List<String>){
+fun threeNumbersEqual2020(list: List<String>) {
     val expenseReport = ExpenseReport()
     val registerSize = list.size
     var index = 0
