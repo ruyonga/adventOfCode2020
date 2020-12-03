@@ -43,7 +43,6 @@ class PasswordPolicy {
 
     private fun isPasswordValid(policy: List<Int>, key: String, password: String): Boolean {
         val keyInString = password.filter { it.toString() == key }.length
-        println("$keyInString => ${policy[0]} && $keyInString <= ${policy[1]}  valid = ${keyInString >= policy[0] && keyInString <= policy[1]}")
         return keyInString >= policy[0] && keyInString <= policy[1]
     }
 
