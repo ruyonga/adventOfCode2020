@@ -4,7 +4,8 @@ import java.io.File
 import java.lang.Integer.parseInt
 
 class PasswordPolicy {
-    private  var validPasswordList: MutableList<String> = mutableListOf()
+    private var validPasswordList: MutableList<String> = mutableListOf()
+    private var validPasswordListTwo: MutableList<String> = mutableListOf()
 
     fun checkForValidPasswords(db: String): Int {
         val entries = readFile(db)
@@ -12,7 +13,7 @@ class PasswordPolicy {
 
             val dbEntry = listEntry(entry)
 
-           val isValid = isPasswordValid(policy(dbEntry), key(dbEntry), password(dbEntry))
+            val isValid = isPasswordValid(policy(dbEntry), key(dbEntry), password(dbEntry))
             if (isValid) {
                 addValidPassword(entry)
             }
@@ -20,9 +21,31 @@ class PasswordPolicy {
         return validPasswords()
     }
 
+//    fun checkForValidPasswordPartTwo(db: String): Int {
+//        val entries = readFile(db)
+//        for (entry in entries) {
+//            val dbEntry = listEntry(entry)
+//            validatePassword(policy(dbEntry), key(dbEntry), password(dbEntry))
+//        }
+//        return validPasswordListTwo.size
+//    }
+//
+//    private fun validatePassword(policy: List<Int>, key: String, password: String) {
+//        password.forEachIndexed { index, element ->
+//            println("$index == ${policy[0]} $index == ${policy[1]}")
+//             if((key == element.toString() && index == policy[0]) || (key == element.toString()  && index == policy[1])){
+//                 validPasswordListTwo.add(password)
+//
+//             }
+//
+//        }
+//
+//    }
+
+
     private fun isPasswordValid(policy: List<Int>, key: String, password: String): Boolean {
         val keyInString = password.filter { it.toString() == key }.length
-        println("$keyInString => ${policy[0]} && $keyInString <= ${policy[1]}  valid = ${keyInString >= policy[0] && keyInString <= policy[1]}" )
+        println("$keyInString => ${policy[0]} && $keyInString <= ${policy[1]}  valid = ${keyInString >= policy[0] && keyInString <= policy[1]}")
         return keyInString >= policy[0] && keyInString <= policy[1]
     }
 

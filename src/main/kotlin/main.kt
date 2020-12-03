@@ -12,7 +12,7 @@ fun main() {
 //    expenseReport.threeNumbersEqual2020(list)
     val passwordPolicy = PasswordPolicy()
     val validPasswordSize = passwordPolicy.checkForValidPasswords("./src/main/kotlin/daytwo.txt")
-    println(validPasswordSize)
+     println(validPasswordSize)
 
 }
 
